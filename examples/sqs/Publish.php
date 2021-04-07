@@ -4,8 +4,8 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 use Cyntelli\Aws\Sqs;
 
-$service = new Sqs('ap-northeast-1', 'AKIA3IXIS7QRS5NMW22H', 'oCHNUME4WXOlix95dICjCVfOpqx8hl1fUrCr3kKy');
+$service = new Sqs('REGION', 'ACCESS_ID', 'ACCESS_SECRET');
 
-$result = $service->publish('123', 'https://sqs.ap-northeast-1.amazonaws.com/774655638563/mpc-dev-media-facebook');
+$result = $service->publish('MESSAGE_CONTENT', 'QUEUE_URL');
 
 var_dump($result);
