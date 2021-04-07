@@ -14,8 +14,8 @@
         "aws/aws-sdk-php": "^3.176"
     },
     "autoload": {
-	"psr-4": {
-	    "Cyntelli\\Aws\\": "src/"
-	}
+        "psr-4": {
+            "Cyntelli\\Aws\\": "src/"
+        }
     }
 }

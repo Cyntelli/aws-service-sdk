@@ -7,7 +7,7 @@
 Use the package manager [composer](https://packagist.org/) to install sdk.
 
 ```bash
-123
+composer require cyntelli/aws-service-sdk
 ```
 
 ## Usage
