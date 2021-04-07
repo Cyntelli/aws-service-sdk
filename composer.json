@@ -3,6 +3,7 @@
     "description": "Support AWS services.",
     "type": "library",
     "license": "MIT",
+    "keywords": ["php", "aws", "sqs"],
     "authors": [
         {
             "name": "Leo Wang",
