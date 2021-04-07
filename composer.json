@@ -1,0 +1,20 @@
+{
+    "name": "cyntelli/aws-service-sdk",
+    "description": "Support AWS services.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Leo Wang",
+            "email": "leo.wang@cyntelli.com"
+        }
+    ],
+    "require": {
+        "aws/aws-sdk-php": "^3.176"
+    },
+    "autoload": {
+	"psr-4": {
+	    "Cyntelli\\Aws\\": "src/"
+	}
+    }
+}
