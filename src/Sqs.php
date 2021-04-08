@@ -54,6 +54,41 @@ class Sqs
             'QueueUrl' => $queueUrl
         ]);
     }
+
+    /**
+     * Batch publish messages.
+     * 
+     * @var array $messageBodys
+     * @var string $queueUrl
+     * @var int $chunkSize
+     * 
+     * @return array
+     */
+    public function publishBatch(array $messageBodys, string $queueUrl, int $chunkSize=100): array
+    {
+        $result = [];
+
+        $chunkMessageBodys = array_chunk($messageBodys, $chunkSize);
+
+        $now = time();
+        foreach ($chunkMessageBodys as $messageBodys) {
+            $entries = [];
+
+            foreach ($messageBodys as $index=>$messageBody) {
+                $entries[] = [
+                    'Id' => $now . '-' . $index,
+                    'MessageBody' => $messageBody
+                ];
+            }
+
+            $result[] = $this->service->sendMessageBatch([
+                'Entries' => $entries,
+                'QueueUrl' => $queueUrl
+            ]);
+        }
+
+        return $result;
+    }
     
     /**
      * Consume message.
