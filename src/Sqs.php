@@ -96,12 +96,13 @@ class Sqs
      * @var callback $callback
      * @var string $queueUrl
      */
-    public function consume($callback, string $queueUrl, int $maxNumberOfMessages=10, int $waitTimeSeconds=20)
+    public function consume($callback, string $queueUrl, int $maxNumberOfMessages=10, int $waitTimeSeconds=20, int $visibilltyTimeout=3600)
     {
         while (true) {
             $data = $this->service->receiveMessage([
                 'QueueUrl' => $queueUrl,
                 'MaxNumberOfMessages' => $maxNumberOfMessages,
+                'VisibilityTimeout' => $visibilltyTimeout,
                 'WaitTimeSeconds' => $waitTimeSeconds
             ]);
 
