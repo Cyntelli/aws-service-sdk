@@ -64,7 +64,7 @@ class Sqs
      * 
      * @return array
      */
-    public function publishBatch(array $messageBodys, string $queueUrl, int $chunkSize=100): array
+    public function publishBatch(array $messageBodys, string $queueUrl, int $chunkSize=10): array
     {
         $result = [];
 
