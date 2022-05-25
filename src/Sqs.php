@@ -41,18 +41,25 @@ class Sqs
 
     /**
      * Publish message.
-     * 
+     *
      * @param string $messageBody
      * @param string $queueUrl
-     * 
+     * @param array  $settings    Other args (like MessageGroupId, MessageDeduplicationID).
+     *
      * @return Result
      */
-    public function publish(string $messageBody, string $queueUrl): Result
+    public function publish(string $messageBody, string $queueUrl, array $settings = []): Result
     {
-        return $this->service->sendMessage([
+        $params = [
             'MessageBody' => $messageBody,
             'QueueUrl' => $queueUrl
-        ]);
+        ];
+
+        if (!empty($settings)) {
+            $params = array_merge($params, $settings);
+        }
+
+        return $this->service->sendMessage($params);
     }
 
     /**
